@@ -74,6 +74,19 @@ class LinkedList {
 	    prev.next = prev.next.next;
 	}
 	
+	// Reversal of a linked_List
+	public static Node reverseList(Node head){
+	    Node current = head;
+	    Node prev = null;
+	    while(current!=null){
+	        Node temp = current.next;
+	        current.next = prev;
+	        prev = current;
+	        current = temp;
+	    }
+	    
+	    return prev;
+	}
     
 	public static void main (String[] args) {
 		Node head = createList();
@@ -89,6 +102,10 @@ class LinkedList {
 		
 		System.out.println("Updated list after deletion");
 		deleteNode(head, 3);
+		displayList(head);
+		
+		System.out.println();
+		head = reverseList(head);
 		displayList(head);
 	}
 			
